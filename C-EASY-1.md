@@ -112,12 +112,11 @@ while 与 do…while 关键区别：do…while先执行一次循环再判断条�
 
 || 代表或，两边只要有一个表达式为真，整体结果就为真；
 
-! 代表非，对表达式结果取反，真变假，假变真。
+! 代表非，对表达式结果取反，真变假，假变真；
 
-
+```
 
 #include <stdio.h>
-
 int main(void)
 
 {
@@ -142,12 +141,17 @@ int main(void)
 
 }
 
+
+
+```
+
 **预测输出**yesyesyes
 
 <img src="file:///C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-15-31-45-image.png" title="" alt="" width="328">
 
 ## 姓名与年龄 次数
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -180,10 +184,13 @@ int main(void)
 
 }
 
+```
+
 ![](C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-15-53-43-image.png)
 
-## 函数封装以更改程序代码
+## 函数封装更改程序代码
 
+```
 #include <stdio.h>
 
     int zh(int x1,int x2,int x3){
@@ -262,10 +269,10 @@ int main(void)
 
 }
 
+```
+
 ## 失败的交换函数
 
 ![](C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-17-48-01-image.png)
 
 原因分析：main函数中，调用swap时，相当于把实参的值复制了一份代入形参中运算，此时swap函数内改变的是形参的值，而该函数最终没有任何返回值来对外部实参产生影响。
-
-
