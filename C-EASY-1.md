@@ -66,7 +66,7 @@ VSCode 本身只是代码编辑器，并不是专门的 C 语言开发软件，�
 
 ## part2_C语言基础
 
-## 变量类型
+### 变量类型
 
 变量的类型规定了变量在内存中占用的空间大小、能够存储的数据种类，以及可以对该变量执行哪些合法运算。
 
@@ -76,7 +76,7 @@ VSCode 本身只是代码编辑器，并不是专门的 C 语言开发软件，�
 
 如果想存放单词 “apple”，只用一个 char 类型字符变量不能实现，**char 只能存储单个字符**，而 apple 是一串字符组成的字符串，正确存储方式是**使用 char 字符数组**。
 
-## 数组的起始与边界
+### 数组的起始与边界
 
 C 语言数组下标从 0 开始。
 
@@ -84,7 +84,7 @@ C 语言数组下标从 0 开始。
 
 C 语言不做下标检查，编译时不提示错误，问题随机性强，不容易定位，因此危险。
 
-## 流程控制 - 循环结构
+### 流程控制 - 循环结构
 
 循环结构依靠**条件判断**控制代码块是否重复执行，当条件成立时代码块执行，条件不成立就结束循环。
 
@@ -101,7 +101,7 @@ while 与 do…while 关键区别：do…while先执行一次循环再判断条�
 
 <img title="" src="file:///C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-14-53-27-image.png" alt="" width="306"><img title="" src="file:///C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-15-01-51-image.png" alt="" width="307">
 
-## 流程控制 - 逻辑表达式
+### 流程控制 - 逻辑表达式
 
 本质区别：
 
@@ -115,7 +115,6 @@ while 与 do…while 关键区别：do…while先执行一次循环再判断条�
 ! 代表非，对表达式结果取反，真变假，假变真；
 
 ```
-
 #include <stdio.h>
 int main(void)
 
@@ -140,16 +139,13 @@ int main(void)
     return 0;
 
 }
-
-
-
 ```
 
 **预测输出**yesyesyes
 
 <img src="file:///C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-15-31-45-image.png" title="" alt="" width="328">
 
-## 姓名与年龄 次数
+### 姓名与年龄 次数
 
 ```
 #include <stdio.h>
@@ -183,95 +179,62 @@ int main(void)
     return 0;
 
 }
-
 ```
 
 ![](C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-15-53-43-image.png)
 
-## 函数封装更改程序代码
+## part3_函数
+
+### 函数封装更改程序代码
 
 ```
+
 #include <stdio.h>
-
-    int zh(int x1,int x2,int x3){
-
-        int p1 = (x1 + x2 + x3) / 3;
-
-        int f1 = ((p1 - x1) * (p1 - x1) + (p1 - x2) * (p1 - x2) + (p1 - x3) * (p1 - x3)) / 3;
-
-        int zh1 = 3 * p1 - f1 / 3;
-
-        return zh1;
-
-    }
-
-    void rank(int zh1,int zh2,int zh3){
-
-        if (zh1 >= zh2 && zh2 >= zh3) {
-
-            printf("小明 > 小强 > 小林");
-
-        } else if (zh1 >= zh3 && zh3 >= zh2) {
-
-            printf("小明 > 小林 > 小强");
-
-        } else if (zh2 >= zh1 && zh1 >= zh3) {
-
-            printf("小强 > 小明 > 小林");
-
-        } else if (zh2 >= zh3 && zh3 >= zh1) {
-
-        printf("小强 > 小林 > 小明");
-
-        } else if (zh3 >= zh1 && zh1 >= zh2) {
-
-        printf("小林 > 小明 > 小强");
-
-        } else { // zh3 >= zh2 && zh2 >= zh1
-
-        printf("小林 > 小强 > 小明");
-
-        }
-
-    }
-
-int main(void)
-
-{
-
-    int x1, x2, x3;
-
-    int y1, y2, y3;
-
-    int z1, z2, z3;
-
-    printf("请输入小明的三项成绩（顺序为A B C,以一个空格为间隔）：");
-
-    scanf("%d %d %d", &x1, &x2, &x3);
-
-    printf("请输入小强的三项成绩（顺序为A B C,以一个空格为间隔）：");
-
-    scanf("%d %d %d", &y1, &y2, &y3);
-
-    printf("请输入小林的三项成绩（顺序为A B C,以一个空格为间隔）：");
-
-    scanf("%d %d %d", &z1, &z2, &z3);
-
-    int zh1=zh(x1, x2, x3);
-
-    int zh2=zh(y1, y2, y3);
-
-    int zh3=zh(z1, z2 ,z3);
-
-    rank(zh1,zh2,zh3);
-
-    return 0;
-
+int zh(int x1,int x2,int x3){
+    int p1 = (x1 + x2 + x3) / 3;
+    int f1 = ((p1 - x1) * (p1 - x1) + (p1 - x2) * (p1 - x2) + (p1 - x3) * (p1 - x3)) / 3;
+    int zh1 = 3 * p1 - f1 / 3;
+    return zh1;
 }
 
+void rank(int zh1,int zh2,int zh3){
+    if (zh1 >= zh2 && zh2 >= zh3) {
+        printf("小明 > 小强 > 小林");
+    } else if (zh1 >= zh3 && zh3 >= zh2) {
+        printf("小明 > 小林 > 小强");
+    } else if (zh2 >= zh1 && zh1 >= zh3) {
+        printf("小强 > 小明 > 小林");
+    } else if (zh2 >= zh3 && zh3 >= zh1) {
+        printf("小强 > 小林 > 小明");
+    } else if (zh3 >= zh1 && zh1 >= zh2) {
+        printf("小林 > 小明 > 小强");
+    } else { // zh3 >= zh2 && zh2 >= zh1
+        printf("小林 > 小强 > 小明");
+    }
+}
+
+int main(void)
+{
+    int x1, x2, x3;
+    int y1, y2, y3;
+    int z1, z2, z3;
+    printf("请输入小明的三项成绩(顺序为A B C,以一个空格为间隔): ");
+    scanf("%d %d %d", &x1, &x2, &x3);
+    printf("请输入小强的三项成绩(顺序为A B C,以一个空格为间隔): ");
+    scanf("%d %d %d", &y1, &y2, &y3);
+    printf("请输入小林的三项成绩(顺序为A B C,以一个空格为间隔): ");
+    scanf("%d %d %d", &z1, &z2, &z3);
+    int zh1=zh(x1, x2, x3);
+    int zh2=zh(y1, y2, y3);
+    int zh3=zh(z1, z2 ,z3);
+    rank(zh1,zh2,zh3);
+    return 0;
+}
 ```
 
-## 失败的交换函数
+![](C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-17-08-47-26-image.png)
+
+### 失败的交换函数
 
 ![](C:/Users/Orlandary/AppData/Roaming/marktext/images/2026-09-15-17-48-01-image.png)
 
